@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ICRISAT-District Level Data</title>
+    <link href="../lib/css/responsive.css" rel="stylesheet">
+    <script type="text/javascript" src="./spatialmap/js/lib/jquery.min.js"></script>
+    <link rel="stylesheet" href="../lib/fSelect-master/fSelect.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/lib/html2canvas.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/lib/lz-string.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/lib/exceljs.min.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/lib/polyfill.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/lib/FileSaver.min.js"></script>
+   <!--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script> -->
+    <style>
+      #csv-save, #img-save, #xl-save, #csvs-save, #imgs-save, #xls-save{
+          text-decoration: none !important;
+          padding-left: 5px;
+          color: black;
+      }
+      li{
+          cursor: pointer;
+      }
+      
+       html body {
+        font-size: 14px;
+        font-family: "Lato", sans-serif;
+        color: #000;
+      }
+      select.form-control {
+          border: 0px solid #ddd!important; 
+          opacity: 1;
+          background: #ECECEC 0% 0% no-repeat padding-box;
+          border-radius: 0px;
+          opacity: 1;
+          height: 36px;
+      }
+        .hidden{
+            display: none!important;
+          }
+          #maps-title{
+            text-align: center;
+            font-weight: 700;
+          }
+          .dropdown-menu.show {
+            display: block;
+            /* border: 1px solid lightcoral; */
+        }
+          .main-footer {
+            padding: 25px 0px 0px 0px !important;
+            margin-bottom: 0px;
+            background: #0e7a39!important;
+        }
+        .footer-widget>ul>li>a{
+          color: #fff!important;
+          text-decoration: none;
+        }
+     select.form-control {
+          /*border: 1px solid #ddd!important;*/
+          background: #DCDCDC 0% 0% no-repeat padding-box;
+          border: 1px solid #B4B4B4;
+          border-radius: 4px;
+          opacity: 1;
+          height: 34px;
+      }
+      .bg-xdadobe-map {
+          background: #f4f6f8!important;
+      }
+      .irs--flat .irs-bar {
+          top: 25px;
+          height: 12px;
+          background-color: #4AAC48;
+      }
+      .home3.main-footer {
+            background-size: cover;
+            background: #0e7a39!important;
+        }
+      .fs-label-wrap .fs-label {
+          padding: 11px 22px 10px 13px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          text-align: left;
+          background: #DCDCDC 0% 0% no-repeat padding-box;
+          /* border: 1px solid #B4B4B4; */
+          border-radius: 4px;
+          opacity: 1;
+          height: 34px;
+      }
+      .fs-dropdown {
+          position: absolute;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          width: 92%;
+          margin-top: 5px;
+          z-index: 1000;
+      }
+      .main_section {
+          margin-top: 5px;
+      }
+      body h6 {
+          font-size: 14px;
+          text-align: left;
+          font: normal normal medium 30px/35px FreightSans Pro;
+          letter-spacing: 0px;
+          color: #131414;
+          text-transform: capitalize;
+          opacity: 1;
+          font-weight: 700;
+      }
+      
+      table th {
+        background-color: #065724!important;
+        color: #FFFFFF;
+    }
+    .dot {
+    height: 15px;
+    width: 15px;
+    /*border-radius: 50%;*/
+    border: 1px solid gray;
+    display: inline-block;
+    margin-top: 16px;
+    margin-bottom: -1px;
+}
+g, #india {
+    stroke: #101010;
+    stroke-width: .6;
+}
+    .fs-label-wrap {
+        position: relative;
+        background-color: #fff;
+        border: 0px solid #ddd; 
+        cursor: default;
+    }
+    .font-25 {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .select_range{
+      position: relative;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 12px #00000029;
+        border-radius: 6px;
+        opacity: 1;
+    }
+    .text-primary-1 {
+        color: #000!important;
+        padding-top: 20px;
+        font-size: 15px;
+    }
+    .gray {
+        background-color: #d1c5c5;
+    }
+    #content_or {
+        margin: 71px auto;
+        text-align: center;
+        width: auto;
+    }
+
+    .show-data{
+      background: transparent linear-gradient(275deg, #4AAC48 0%, #097B39 100%) 0% 0% no-repeat padding-box;
+          height: 40px;
+          color: #fff;
+          width: 150px;
+          border-radius: 4px;
+          opacity: 1;
+      }
+    .mt-50 { margin-top: 105px; }
+    .logo-nav-row .dropdown-menu>li>a:hover {
+      background: #097b39;
+      color: #fff;
+    }
+    .main-footer {
+        padding: 20px 0;
+        padding-bottom: 40px;
+        margin-bottom: 0px;
+      }
+    .irs-diapason, .noUi-origin-lower {
+      background: none; 
+    }
+    .irs-with-grid {
+      height: 60px;
+      width: inherit;
+    }
+    .btn-group-sm>.btn, .btn-sm {
+      padding: 5px 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      border-radius: 3px;
+    }
+    .fs-wrap {
+      display: inline-block;
+      cursor: pointer;
+      line-height: 1;
+      width: 100%; 
+    }
+    .form-control {
+      height: 30px;
+      padding: 5px 8px;
+      font-size: 13px;
+      line-height: 1.4;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-top-color: #ddd;
+      border-radius: 1px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      -webkit-transition: none;
+      transition: none;
+    }
+    .panel {
+      overflow: visible;
+    }
+    .btn.export {
+      margin: 0 0 5px 1px;
+    }
+    table td , table th {
+      font-size: 14px;
+    }
+    table th {
+      background-color: #11a911;
+      color: #FFFFFF;
+    }
+    .bg-white{
+      background: #fff;
+      padding: 20px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .irs-slider.single {
+      background: linear-gradient(blue, blue) center/2px 100% no-repeat !important;
+    }
+    .description {
+      overflow-y: hidden;
+      position: relative;
+      padding-bottom: 0px;
+      transition: height 0.5s ease;
+      -webkit-transition: height 0.5s ease;
+    }
+    .yearRow {
+      margin-top: 18px;
+    }
+    input[type=checkbox]:checked:after {
+      background: url('./assets/images/checkmark.png') #fff no-repeat;
+    }
+
+    .overlay {
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      margin: 0 -15px;
+      position: absolute;
+      display: block !important;
+      background: rgba(255, 255, 255, 0.6);
+    }
+   
+    .bg-white {
+    background: #f7f7f7!important;
+    padding: 0px 14px;
+    margin-left: 0px;
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+    margin-right: 0px;
+}
+.navbar-nav li>a{
+  padding: 28px 14px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #777777;
+    font-weight: 700;
+  }
+  .dropdown-menu ul li{
+    border: 1px solid lightblue;
+  }
+.dropdown-menu li a {
+    padding: 4px 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #777777;
+    border-bottom: 1px solid lightblue;
+    font-weight: 600;
+}
+  ul li{
+    list-style-type: none;
+  }
+  ul li:hover{
+    text-decoration: none;
+  }
+  .topnav a {
+  /*float: left;*/
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid green;
+}
+
+.topnav a.active {
+  border-bottom: 3px solid green;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 13rem;
+    padding: 0.5rem 0px;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.footer-widget h6 {
+    font-size: 20px;
+    color: #fff;
+    margin: 0;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.card{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 5px 19px #00000029;
+border-radius: 6px;
+opacity: 1;
+border: none;
+
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 5px;
+    
+}
+select.form-control {
+    /* border: 1px solid #ddd!important; */
+    opacity: 1;
+    background: #DCDCDC 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    height: 36px;
+}
+ /*select.form-control {
+    border: 1px solid #ddd!important; 
+    background: #DCDCDC 0% 0% no-repeat padding-box;
+    border: 1px solid #B4B4B4;
+    border-radius: 3px 3px 0px 0px;
+    opacity: 1;
+    background: #ECECEC 0% 0% no-repeat padding-box;
+    border-radius: 0px;
+    opacity: 1;
+    height: 36px;
+}*/
+.home3.main-footer {
+      /* background: url(../images/h3footerbg.jpg) no-repeat; */
+      background-size: cover;
+      background: #0e7a39!important;
+  }
+  label>span{
+    font-weight: 500;
+    font-size: 15px;
+  }
+  #map-title{
+    text-align: center!important;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .show-data-one {
+    background: transparent linear-gradient(275deg, #4AAC48 0%, #097B39 100%) 0% 0% no-repeat padding-box;
+    height: 40px;
+    color: #fff;
+    width: 150px;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: #28A745;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #28A745;
+    cursor: pointer;
+}
+/* .mt-215px{
+    padding-top: 215px!important;
+} */
+  </style>
+</head>
+
+<body style="background: #F4F6F8!important;">
+    <!--Wrapper Start-->
+    <div class="wrapper">
+        <!--Header Start-->
+        <!-- <section id="pageHeader"></section> -->
+        <!--Header End-->
+        <section>
+            <nav class="navbar navbar-expand-xl bg-white navbar-dark">
+                <div class="container-fluid">
+                    <!-- Brand -->
+                    <a class="navbar-brand" href="#"><img class="" src="./assets/images/logo1.png" alt="" style="height: 55px"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Navbar links -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="nav navbar-nav ml-auto topnav">
+                            <li> <a class="" href="../index.html">Home </a> </li>
+                            <li><a class="" href="about-dld.html">About DLD </a> </li>
+                            <li><a class="" href="districtprofile.html">District Snapshots</a> </li>
+                            <li><a class="" href=Spatialmap.html">Spatial Maps</a> </li>
+                            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="crops.html">Apportioned</a></li>
+                                    <li><a class="UnapportionedLink" href="crops.html">Unapportioned</a></li>
+                                    <li><a href="additional.html">Additional Data</a></li>
+                                    <li><a href="visualization.html">Visualization</a></li>
+                                    <!-- <li><a href="Spatialmap.html" class="active">Spatial Maps</a></li> -->
+                                </ul>
+                            </li>
+                            <li> <a class="" href="definition_standard.html">Definitions And Standards </a> </li>
+                            <li> <a class="" href="support.html">Support </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <!--Main Content Start-->
+        <section class="container-fluid clearfix main_section">
+            <div id="main_content_outer" class="clearfix">
+                <div class="text-center" id="main-waiting">
+                    <img src="./spatialmap/img/spinner.gif"><br>
+                    <span>LOADING RESOURCES, PLEASE WAIT...</span>
+                </div>
+                <div id="main-container">
+                    <div class="container-fluid p-3 mb-2">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body p-1">
+                                        <ul class="nav nav-pills row  text-center">
+                                            <li class="nav-item col-sm-6 active mb-1">
+                                                <a class="nav-link btn-success" href="#single-map" data-toggle="pill" id="single-panel-pill">
+                                                    Apportioned/Unapportioned Maps
+                                                </a>
+                                            </li>
+                                            <li class="nav-item col-sm-6 mb-1">
+                                                <a class="nav-link btn-success" href="#multiple-map" data-toggle="pill" id="multiple-panel-pill">
+                                                    Apportioned Maps Comparison
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body p-3">
+                                        <div class="form-row">
+                                            <div class="col-sm-12 col-md-6 col-lg-3">
+                                                <div class="form-group">
+                                                    <label> <span><strong>CATEGORIES*</strong></span> &nbsp;&nbsp;
+                                                        <small class="text-danger" id="category-error"></small>
+                                                    </label>
+                                                    <select id="category" class="form-control"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 col-lg-3">
+                                                <div class="form-group">
+                                                    <label> <span><strong>SUB-CATEGORIES*</strong></span> &nbsp;&nbsp;
+                                                        <small class="text-danger" id="sub-category-error"></small>
+                                                    </label>
+                                                    <select id="sub-category" class="form-control">
+                                                        <option value="">---------</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 col-lg-3">
+                                                <div class="form-group">
+                                                    <label> <span><strong>ELEMENTS*</strong></span> &nbsp;&nbsp;
+                                                        <small class="text-danger" id="element-error"></small>
+                                                    </label>
+                                                    <select id="element" class="form-control">
+                                                        <option value="">---------</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 col-lg-3">
+                                                <div class="form-group">
+                                                    <label> <span><strong>ITEMS*</strong></span> &nbsp;&nbsp;
+                                                        <small class="text-danger" id="item-error"></small>
+                                                    </label>
+                                                    <select id="item" class="form-control">
+                                                        <option value="">---------</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div id="single-map" class="tab-pane fade in active show ">
+                                <div class="card">
+                                    <div class="card-body p-3">
+                                        <div class="row mt-2">
+                                            <div class="col-sm-4 text-center mt-2">
+                                                <div class="form-group mt-radio mb-0">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="dataset" value="apportioned" disabled>&nbsp;Apportioned
+                                                    </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="dataset" value="unapportioned" checked>&nbsp;Unapportioned
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5 text-center">
+                                                <div class="slidecontainer text-center">
+                                                    <input type="range" min="1966" max="2015" value="2015" class="slider" id="range" disabled style="width: 100%;">
+                                                    <button id="down-year" class="pull-left btn btn-xs">
+                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <span>Year:&nbsp;<strong id="year" class="text-success">2015</strong></span>
+                                                    <button id="up-year" class="pull-right btn btn-xs">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 text-center">
+                                                <div class="mt-process">
+                                                    <button class="btn btn-success show-data-one mb-1" id="generate" type="submit">Generate</button>
+                                                    <button class="btn btn-success show-data-one dropdown-toggle mb-1" type="button" id="download" data-toggle="dropdown">
+                                                        <i class="fa fa-download" aria-hidden="true"></i><span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="download" style="background: lightgray;width: 100px !important;position: absolute;top: 0px;left: -53px;will-change: transform;">
+                                                        <li role="presentation">
+                                                            <a role="menuitem" tabindex="-1" id="csv-save">Save as CSV</a>
+                                                        </li>
+                                                        <li role="presentation">
+                                                          <a role="menuitem" tabindex="-1" id="xl-save">Save as Excel</a>
+                                                      </li>
+                                                        <li role="presentation">
+                                                            <a role="menuitem" tabindex="-1" id="img-save">Save as Image</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card mt-2">
+                                    <div class="card-body p-3">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div id="chart-wait" class="text-center"></div>
+                                                <div class="mt-2 mb-2" id="map-container">
+                                                    <div class="pt-2 pb-2 border-bottom">
+                                                        <div id="map-title"></div>
+                                                    </div>
+                                                    <div class="row ">
+                                                        <div class="col-sm-3"></div>
+                                                        <div class="col-sm-5">
+                                                            <div class="fix-width scroll-inner">
+                                                                <div class="res-chart text-center" id="chart"></div>
+                                                            </div>
+                                                            <!-- <div id="chart" class="pt-3 text-center  res-chart"></div> -->
+                                                        </div>
+                                                        <div class="col-sm-2 pull-right py-5">
+                                                            <div id="chart-legend" class="text-left  pt-2"></div>
+                                                            <div id="district-value" class="text-left pt-3"></div>
+                                                        </div>
+                                                        <div class="col-sm-2"></div>
+                                                    </div>
+                                                    <div class="pt-2 pb-2 text-center" id="range-distribution"></div>
+                                                    <div class="pt-2 pb-2 border-top row">
+                                                        <div class="col-sm-8 col-md-8 col-lg-8">
+                                                            <div class="float-left" id="map-citation"></div>
+                                                        </div>
+                                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                                          <div class="float-right" id="map-logo"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="multiple-map" class="tab-pane fade">
+                                <div class="card">
+                                    <div class="card-body p-3">
+                                        <div class="row">
+                                            <div class="col-sm-4 offset-3">
+                                                <div class="form-group mb-0">
+                                                    <label>
+                                                        <button id="clear-years" class="pull-right btn btn-sm" title="Clear selections">
+                                                            <i class="fa fa-ban" aria-hidden="true"></i>
+                                                        </button>
+                                                        <span><strong>YEARS*</strong></span>
+                                                        &nbsp;&nbsp;
+                                                        <small class="text-danger" id="years-error"></small>
+                                                    </label><br>
+                                                    <select id="years" multiple="multiple" class="form-control">
+                                                        <option value="1966">1966</option>
+                                                        <option value="1967">1967</option>
+                                                        <option value="1968">1968</option>
+                                                        <option value="1969">1969</option>
+                                                        <option value="1970">1970</option>
+                                                        <option value="1971">1971</option>
+                                                        <option value="1972">1972</option>
+                                                        <option value="1973">1973</option>
+                                                        <option value="1974">1974</option>
+                                                        <option value="1975">1975</option>
+                                                        <option value="1976">1976</option>
+                                                        <option value="1977">1977</option>
+                                                        <option value="1978">1978</option>
+                                                        <option value="1979">1979</option>
+                                                        <option value="1980">1980</option>
+                                                        <option value="1981">1981</option>
+                                                        <option value="1982">1982</option>
+                                                        <option value="1983">1983</option>
+                                                        <option value="1984">1984</option>
+                                                        <option value="1985">1985</option>
+                                                        <option value="1986">1986</option>
+                                                        <option value="1987">1987</option>
+                                                        <option value="1988">1988</option>
+                                                        <option value="1989">1989</option>
+                                                        <option value="1990">1990</option>
+                                                        <option value="1991">1991</option>
+                                                        <option value="1992">1992</option>
+                                                        <option value="1993">1993</option>
+                                                        <option value="1994">1994</option>
+                                                        <option value="1995">1995</option>
+                                                        <option value="1996">1996</option>
+                                                        <option value="1997">1997</option>
+                                                        <option value="1998">1998</option>
+                                                        <option value="1999">1999</option>
+                                                        <option value="2000">2000</option>
+                                                        <option value="2001">2001</option>
+                                                        <option value="2002">2002</option>
+                                                        <option value="2003">2003</option>
+                                                        <option value="2004">2004</option>
+                                                        <option value="2005">2005</option>
+                                                        <option value="2006">2006</option>
+                                                        <option value="2007">2007</option>
+                                                        <option value="2008">2008</option>
+                                                        <option value="2009">2009</option>
+                                                        <option value="2010">2010</option>
+                                                        <option value="2011">2011</option>
+                                                        <option value="2012">2012</option>
+                                                        <option value="2013">2013</option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2015">2015</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <button class="btn btn-success show-data-one mb-1  mr-4" id="compare" type="submit" style="margin-top: 35px">Compare</button>
+                                                <button class="btn btn-success show-data-one dropdown-toggle mb-1" style="margin-top: 35px" type="button" id="downloads" data-toggle="dropdown">
+                                                    <i class="fa fa-download" aria-hidden="true"></i><span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="downloads">
+                                                    <li role="presentation">
+                                                        <a role="menuitem" tabindex="-1" id="csvs-save">Save as CSV</a>
+                                                    </li>
+                                                    <li role="presentation">
+                                                        <a role="menuitem" tabindex="-1" id="xls-save">Save as Excel</a>
+                                                    </li>
+                                                    <li role="presentation">
+                                                        <a role="menuitem" tabindex="-1" id="imgs-save">Save as Image</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card mt-2">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div id="charts-wait" class="text-center"></div>
+                                                <div class="container-fluid p-3 mb-2" id="maps-container">
+                                                    <div class="pt-2 pb-2 border-bottom">
+                                                        <div id="maps-title"></div>
+                                                    </div>
+                                                    <!-- <div class="fix-width scroll-inner">
+                                                        <div class="row">
+                                                            <div class="res-chart" id="charts"></div>
+                                                        </div>
+                                                    </div> -->
+                                                    <div id="charts" class="pt-3 row"></div>
+                                                    
+                                                    <div class="pt-2 pb-2 border-top row">
+                                                        <div class="col-sm-8 col-md-8 col-lg-8">
+                                                          <div class="float-left" id="maps-citation"></div>
+                                                        </div>
+                                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                                          <div class="float-right" id="maps-logo"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ml-0 mr-0 mb-2">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="card" style="background: #01163C 0% 0% no-repeat padding-box;box-shadow: 0px 7px 22px #00000029;border-radius: 6px;opacity: 1;">
+                                <div class="card-body p-3">
+                                    <p class="text-justify text-white mb-0" style="color:#fff;font-size: 14px;font-family: sans-serif;text-align: justify;">All variables included for mapping are divided into 5 groups: bottom 40% districts, next 20%, next 20%; next 10% and top 10%. Only for rice and wheat we have 6 groups. Bottom 20% next 20%, 20%, 20%, next 10% and top 10%.</p>
+                                    <p class="text-justify text-white mb-0 mt-2" style="color:#fff;font-size: 14px;font-family: sans-serif;text-align: justify;">
+                                        For maps using apportioned data the groupings are based on 1966 data for area and production (1995 for soybean, sunflower, safflower and castor) and 1995 data for yields. Thus, the change over time from the base year to 2015 in area, production or yield can be visualized. Additionally, the share of districts across the groups in any given year is given below the map for comparison with base year shares. For example, if the highest group is 15% in 2015 implying the number of districts in this group increased from 10% in the base year to 15% and so on.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Main Content End-->
+        <!-- Page Footer Start -->
+        <!-- <section id="pageFooter"> </section> -->
+        <section>
+            <footer class="home3 footer-bottom main-footer wf100 main_section mb-20">
+                <div class="container-fluid">
+                    <div class="row p-3">
+                        <div class="col-md-5 col-sm-6">
+                            <div class="footer-widget">
+                                <h6>About DLD</h6>
+                                <p class="text-white" style="color:#fff;font-size: 16px;font-family: sans-serif;text-align: justify;">
+                                    The District Level Database (DLD) for Indian agriculture and allied sectors provides a comprehensive one-stop shop for data on rural sector that enables testing of key research hypotheses, identification of relevant districts / regions for technology dissemination, promoting rural pro-poor programs / development initiatives and identification of relevant representative districts for micro level assessment.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-widget">
+                                <h6>Important Links</h6>
+                                <ul class="text-white pl-0" style="color:#fff;font-size: 16px;font-family: sans-serif;text-align: justify;">
+                                    <li><a href="about-dld.html"> About DLD</a></li>
+                                    <li><a href="crops.html"> Apportioned data</a></li>
+                                    <li><a class="UnapportionedLink" href="crops.html"> Unapportioned data</a></li>
+                                    <li><a href="additional.html"> Additional data</a></li>
+                                    <li><a href="definition_standard.html"> Definitions and
+                                            Standards</a></li>
+                                    <li><a href="support.html"> Support</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h6>Contact Us</h6>
+                                <ul class="text-white pl-0" style="color:#fff;font-size: 16px;font-family: sans-serif;text-align: justify;">
+                                    <li><span> S Nedumaran - Senior Scientist (Economics)</span></li>
+                                    <li>Global Program on Innovation Systems for Drylands (ISD), ICRISAT</li>
+                                    <li>Address: Patancheru, Hyderabad, Telangana - 502324, India <br>
+                                            Email: s.nedumaran@cgiar.org, Skype: s.nedumaran<br>
+                                            Phone: +91 40 3071 3522, +91 9618800165,
+                                            Fax: +91 40 30713072
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <footer class=" footer wf100" style="background: #615c5c!important;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 p-1">
+                            <p class="copyr text-center text-white mb-0 p-1">Copyright © 2020 ICRISAT All Rights Reserved. </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+        <!-- Page Footer End -->
+    </div>
+    <!--Wrapper End-->
+    <script type="text/javascript" src="./spatialmap/js/lib/fSelect.js"></script>
+    <!-- <script src="../lib/fSelect-master/fSelect.js"></script> -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+    <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/lib/d3.geo.min.js"></script>
+    <!-- CUSTOM FILES - JS -->
+
+    <script type="text/javascript" src="./spatialmap/js/dld-api.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/dld-init.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/dld-init-filter.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/categories/dld-crops.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/categories/dld-rainfall.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/categories/dld-landuse.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/categories/dld-fertilizer-consumption.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/categories/dld-population.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/categories/dld-livestock.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/categories/dld-nutrition.js"></script>
+     <script type="text/javascript" src="./spatialmap/js/logo64.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/dld-map.js"></script>
+    <script type="text/javascript" src="./spatialmap/js/dld-maps.js"></script>
+
+    <!-- JS -->
+    <!-- <script src="../lib/js/jquery.min.js"></script> 
+  <script src="../lib/js/bootstrap.min.js"></script> -->
+    <script src="../lib/js/custom.js"></script>
+    <script src="header-footer/header.js"></script>
+    <script src="header-footer/footer.js"></script>
+    <!--scroll-top script-->
+    <style>
+    .mt-50 {
+        margin-top: 100px;
+    }
+
+    .navbar-dark .navbar-toggler {
+        color: #fff;
+        border-color: rgba(255, 255, 255, .1);
+        background: #097b39;
+        /* margin-left: 5px; */
+        margin-right: 5px;
+    }
+
+    .logo-nav-row .dropdown-menu>li>a:hover {
+        background: #097b39;
+        color: #fff;
+    }
+
+     @media screen and (min-width: 640px) {
+        .res-chart {
+            width: 100% !important;
+            height: 650px;
+        }
+        #charts svg{
+          width: 100%!important;
+          height: auto;
+        }
+        
+       /*.res-chart1 {
+            width: 100%!important;
+            height: auto;
+        }*/
+        .show-data-one {
+            background: transparent linear-gradient(275deg, #4AAC48 0%, #097B39 100%) 0% 0% no-repeat padding-box;
+            height: 40px;
+            color: #fff;
+            width: 117px;
+            border-radius: 4px;
+            opacity: 1;
+        }
+        .fix-width {
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .scroll-inner::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scroll-inner::-webkit-scrollbar:horizontal {
+            height: 0px;
+        }
+
+        .scroll-inner::-webkit-scrollbar-track {
+            background-color: rgba(204, 204, 204, 0.3);
+        }
+
+        .scroll-inner::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: rgba(204, 204, 204, 0.5);
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .tab-content>.active {
+            display: block;
+        }
+    }
+
+   
+    @media screen and (min-width: 360px) {
+        .res-chart {
+            width: 100% !important;
+            height: 650px;
+        }
+         #charts svg{
+          width: 100%!important;
+          height: auto;
+        }
+       /* .res-chart1 {
+            width: auto;
+            height: auto;
+        }*/
+
+        
+
+        .fix-width {
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .scroll-inner::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scroll-inner::-webkit-scrollbar:horizontal {
+            height: 0px;
+        }
+
+        .scroll-inner::-webkit-scrollbar-track {
+            background-color: rgba(204, 204, 204, 0.3);
+        }
+
+        .scroll-inner::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: rgba(204, 204, 204, 0.5);
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+ @media screen and (min-width: 320px) {
+        .res-chart {
+            width: 100% !important;
+            height: 650px;
+        }
+
+       /* .res-chart1 {
+            width: auto;
+            height: auto;
+        }*/
+        
+        .fix-width {
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .scroll-inner::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scroll-inner::-webkit-scrollbar:horizontal {
+            height: 0px;
+        }
+
+        .scroll-inner::-webkit-scrollbar-track {
+            background-color: rgba(204, 204, 204, 0.3);
+        }
+
+        .scroll-inner::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: rgba(204, 204, 204, 0.5);
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+
+    </style>
+</body>
+
+</html>

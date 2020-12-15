@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ICRISAT-District Level Data</title>
+	<!-- CSS Files -->
+	<link href="../lib/css/new-style.css" rel="stylesheet">
+	<link href="../lib/css/custom1.css" rel="stylesheet">
+	<link href="../lib/css/responsive.css" rel="stylesheet">
+	<link href="../lib/css/color.css" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- bootstrap framework-->
+	<link rel="stylesheet" href="../lib/select2/bootstrap/css/bootstrap.min.css">
+	<!-- todc-bootstrap -->
+	<link rel="stylesheet" href="../lib/select2/css/todc-bootstrap.min.css">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="../lib/select2/css/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="../lib/select2/css/retina.css">
+	<!-- bootstrap switch -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/bootstrap-switch/stylesheets/bootstrap-switch.css">
+	<link rel="stylesheet" href="../lib/select2/js/lib/bootstrap-switch/stylesheets/ebro_bootstrapSwitch.css">
+
+	<!-- aditional stylesheets -->
+	<!-- 2col multiselect -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/multi-select/css/multi-select.css">
+	<link rel="stylesheet" href="../lib/select2/js/lib/multi-select/css/ebro_multi-select.css">
+	<!-- select2 -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/select2/select2.css">
+	<link rel="stylesheet" href="../lib/select2/js/lib/select2/ebro_select2.css">
+	<!-- datepicker -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/datepicker/css/datepicker.css">
+	<!-- timepicker -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/timepicker/css/bootstrap-timepicker.min.css">
+	<!-- colorpicker -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/colorpicker/css/colorpicker.css">
+	<!-- iCheck -->
+	<link href="../lib/select2/js/lib/iCheck/skins/minimal/minimal.css" rel="stylesheet" id="icheck_theme">
+
+	<link rel="stylesheet" href="../lib/select2/js/lib/noUiSlider/jquery.nouislider.min.css">
+	<!-- Ion rangeSlider -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css" />
+	<!-- fSelect -->
+	<link rel="stylesheet" href="../lib/fSelect-master/fSelect.css">
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" href="../lib/DataTables/media/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../lib/DataTables/Buttons/css/buttons.dataTables.min.css">
+	<!-- ebro styles -->
+	<link rel="stylesheet" href="../lib/select2/css/style.css">
+	<link rel="stylesheet" href="../lib/mdb/css/mdb.min.css">
+	<!-- ebro theme -->
+	<link rel="stylesheet" href="../lib/select2/css/theme/color_1.css" id="theme">
+	<style>
+		select.form-control {
+			/*border: 1px solid #ddd!important;*/
+			background: #DCDCDC 0% 0% no-repeat padding-box;
+			border: 1px solid #B4B4B4;
+			border-radius: 4px;
+			opacity: 1;
+			height: 34px;
+		}
+
+		.table-striped>tbody>tr:nth-child(odd)>td,
+		.table-striped>tbody>tr:nth-child(odd)>th {
+			background-color: #DCDCDC;
+		}
+
+		.table-striped>tbody>tr:nth-child(even)>td,
+		.table-striped>tbody>tr:nth-child(even)>th {
+			background-color: #F2F2F2;
+		}
+
+		.irs--flat .irs-bar {
+			top: 25px;
+			height: 12px;
+			background-color: #4AAC48;
+		}
+
+		.home3.main-footer {
+			/* background: url(../images/h3footerbg.jpg) no-repeat; */
+			background-size: cover;
+			background: #0e7a39 !important;
+		}
+
+		.navbar {
+			padding: 0px 0px 0px 0px;
+			font-weight: 700;
+			margin-bottom: 0;
+			background: #f7f7f7 !important;
+		}
+
+		.dataTables_wrapper .dataTables_paginate .paginate_button {
+			box-sizing: border-box;
+			display: inline-block;
+			min-width: 1.5em;
+			padding: 0.5em 1em;
+			margin-left: 2px;
+			text-align: center;
+			text-decoration: none !important;
+			cursor: pointer;
+			color: #333 !important;
+			border: 1px solid black;
+			border-radius: 2px;
+		}
+
+		.btn.export {
+			margin: 0px 0px -2px 6px;
+		}
+
+		.fs-label-wrap .fs-label {
+			padding: 8px 22px 10px 13px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			text-align: left;
+			background: #DCDCDC 0% 0% no-repeat padding-box;
+			/* border: 1px solid #B4B4B4; */
+			border-radius: 4px;
+			opacity: 1;
+			height: 34px;
+		}
+
+		.fs-dropdown {
+			position: absolute;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			width: 92%;
+			margin-top: 5px;
+			z-index: 1000;
+		}
+
+		.main_section {
+			margin-top: 5px;
+		}
+
+		body h6 {
+			font-size: 14px;
+			text-align: left;
+			font: normal normal medium 30px/35px FreightSans Pro;
+			letter-spacing: 0px;
+			color: #131414;
+			text-transform: capitalize;
+			opacity: 1;
+			font-weight: 700;
+		}
+
+		body h1,
+		body h2,
+		body h3,
+		body h4,
+		body h5,
+		body h6 {
+			font-family: "Lato", sans-serif;
+			color: #053888;
+			margin: 0px;
+			text-align: left;
+			/* font: normal normal 600 30px/39px FreightSans Pro; */
+			letter-spacing: 0px;
+			color: #242222;
+			opacity: 1;
+		}
+
+		table th {
+			background-color: #065724 !important;
+			color: #FFFFFF;
+		}
+
+		.fs-label-wrap {
+			position: relative;
+			background-color: #fff;
+			border: 0px solid #ddd;
+			cursor: default;
+		}
+
+		.font-25 {
+			font-size: 25px;
+			font-weight: 700;
+		}
+
+		.select_range {
+			position: relative;
+			background: #FFFFFF 0% 0% no-repeat padding-box;
+			box-shadow: 0px 3px 12px #00000029;
+			border-radius: 6px;
+			opacity: 1;
+		}
+
+		.text-primary-1 {
+			color: #000 !important;
+			padding-top: 20px;
+			font-size: 15px;
+		}
+
+		.gray {
+			background-color: #d1c5c5;
+		}
+
+		#content_or {
+			margin: 71px auto;
+			text-align: center;
+			width: auto;
+		}
+
+		.show-data {
+			background: transparent linear-gradient(275deg, #4AAC48 0%, #097B39 100%) 0% 0% no-repeat padding-box;
+			height: 40px;
+			color: #fff;
+			width: 150px;
+			border-radius: 4px;
+			opacity: 1;
+		}
+
+		.mt-50 {
+			margin-top: 105px;
+		}
+
+		.logo-nav-row .dropdown-menu>li>a:hover {
+			background: #097b39;
+			color: #fff;
+		}
+
+		.main-footer {
+			padding: 20px 0;
+			padding-bottom: 40px;
+			margin-bottom: 0px;
+		}
+
+		.irs-diapason,
+		.noUi-origin-lower {
+			background: none;
+		}
+
+		.irs-with-grid {
+			height: 60px;
+			width: inherit;
+		}
+
+		.btn-group-sm>.btn,
+		.btn-sm {
+			padding: 5px 10px;
+			font-size: 12px;
+			line-height: 1.5;
+			border-radius: 3px;
+		}
+
+		.fs-wrap {
+			display: inline-block;
+			cursor: pointer;
+			line-height: 1;
+			width: 100%;
+		}
+
+		.form-control {
+			height: 30px;
+			padding: 5px 8px;
+			font-size: 16px!important;
+			line-height: 1.4;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-top-color: #ddd;
+			border-radius: 1px;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+			-webkit-transition: none;
+			transition: none;
+		}
+
+		.panel {
+			overflow: visible;
+		}
+
+		.btn {
+			font-size: 12px !important;
+		}
+
+		table td,
+		table th {
+			font-size: 14px;
+		}
+
+		table th {
+			background-color: #11a911;
+			color: #FFFFFF;
+		}
+
+		.bg-white {
+			background: #fff;
+			padding: 20px;
+			margin-left: 0px;
+			margin-right: 0px;
+		}
+
+		.irs-slider.single {
+			background: linear-gradient(blue, blue) center/2px 100% no-repeat !important;
+		}
+
+		.description {
+			overflow-y: hidden;
+			position: relative;
+			padding-bottom: 0px;
+			transition: height 0.5s ease;
+			-webkit-transition: height 0.5s ease;
+		}
+
+		.yearRow {
+			margin-top: 18px;
+		}
+
+		input[type=checkbox]:checked:after {
+			background: url('./assets/images/checkmark.png') #fff no-repeat;
+		}
+
+		.overlay {
+			opacity: 1;
+			width: 100%;
+			height: 100%;
+			margin: 0 -15px;
+			position: absolute;
+			display: block !important;
+			background: rgba(255, 255, 255, 0.6);
+		}
+
+		@media (min-width: 320px) {
+			.item_pad {
+				padding-top: 80px;
+			}
+
+			.logo_height {
+				display: block;
+				height: 49px;
+			}
+		}
+
+		@media (min-width: 360px) {
+			.logo_height {
+				display: block;
+				height: 57px;
+			}
+		}
+
+		@media (min-width: 768px) {
+			.logo_height {
+				display: block;
+				height: 44px;
+			}
+		}
+
+		@media (min-width: 812px) {
+			.logo_height {
+				display: block;
+				height: 53px;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			.logo_height {
+				display: block;
+				height: 59px;
+			}
+		}
+
+		@media (max-width: 1200px) {
+			.navbar-header {
+				float: none;
+			}
+
+			.navbar-toggle .icon-bar {
+				display: block;
+				width: 22px;
+				background: #fff;
+				height: 2px;
+				border-radius: 1px;
+			}
+
+			.logo-nav-row .navbar-nav>li>a {
+				padding: 10px 14px;
+				text-transform: uppercase;
+				font-size: 14px;
+				color: #777777;
+				font-weight: 700;
+			}
+
+			.logo-nav-row .navbar-brand {
+				padding: 4px 0px;
+				height: inherit;
+				margin-right: 0px;
+			}
+
+			.navbar-left,
+			.navbar-right {
+				float: none !important;
+			}
+
+			.navbar-toggle {
+				display: block;
+				background: #097b39;
+				margin-top: 16px;
+			}
+
+			.navbar-collapse {
+				border-top: 1px solid transparent;
+				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			}
+
+			.navbar-fixed-top {
+				top: 0;
+				border-width: 0 0 1px;
+			}
+
+			.navbar-collapse.collapse {
+				display: none !important;
+			}
+
+			.navbar-nav {
+				float: none !important;
+				margin-top: 7.5px;
+			}
+
+			.navbar-nav>li {
+				float: none;
+			}
+
+			.navbar-nav>li>a {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+
+			.collapse.in {
+				display: block !important;
+			}
+
+			.navbar-brand {
+				display: inline-block;
+				float: none;
+			}
+
+			.navbar-form.form-inline {
+				display: inline-block;
+				border-color: transparent;
+				margin: 4px;
+				padding: 5px;
+			}
+
+			.navbar-form .form-control {
+				display: inline-block;
+				width: auto;
+				vertical-align: middle;
+			}
+
+		}
+
+		/*@media (min-width: 1200px){
+	  .logo_height{
+	    display: block;
+	    height: 59px;
+	  }
+	}*/
+	</style>
+</head>
+
+<body style="background: #eee;">
+	<!--Wrapper Start-->
+	<div class="wrapper">
+		<!-- Page Footer Start -->
+		<section id="pageHeader">
+
+		</section>
+		<!-- Page Footer End -->
+		<section class="container loader_body">
+			<div class="col-md-12" style="text-align: center;">
+				<img src="./assets/images/spinner.gif" style="width:400px;margin:30px auto;">
+			</div>
+		</section>
+		<!--Main Content Start-->
+
+		<section class="container-fluid  plr-20px clearfix main_section mt-50">
+			<div id="main_content_outer" class="clearfix">
+				<div id="main_content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="panel panel-default news-post" style="border:none;">
+								<div class="panel-body" style="padding-top:10px;">
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="form-group pt-10">
+												<h6 class="text-left mb-10">SELECT CATEGORIES</h6>
+												<select name="category" class="form-control category">
+													<option value="crops">Crops</option>
+													<option value="irrigation">Irrigation</option>
+													<option value="livestock">Livestock</option>
+													<option value="inputs">Inputs</option>
+													<option value="infrastructure">Infrastructure</option>
+													<option value="census">Census</option>
+													<option value="biophysical">Biophysical</option>
+													<option value="prices">Prices</option>
+													<option value="gdp">GDP</option>
+													<option value="environment">Environment</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-5">
+											<div class="form-group pt-10 text-left">
+												<h6 class="text-left mb-10">SUB CATEGORY (<span
+															class="categoryName"></span>)
+												</h6>
+												<select name="subcategory"
+													class="form-control subcategory text-left"></select>
+												<p class="text-danger error"></p>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group text-right pt-10">
+												<!-- <h6 class="text-center mb-10"><strong>SELECT  CATEGORIES</strong></h6> -->
+												<label class="radio-inline pt-30">
+													<input type="radio" class="datatype" name="datatype"
+														value="apportioned" checked>Apportioned
+												</label>
+												<label class="radio-inline pt-30">
+													<input type="radio" class="datatype" name="datatype"
+														value="unapportioned">Unapportioned
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="container-fluid  plr-20px clearfix main_section">
+			<div id="main_content_outer" class="clearfix">
+				<div id="main_content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="panel panel-default news-post" style="border:none;">
+								<div class="panel-body">
+									<h2>
+										<!-- <span> <img src="./assets/images/crops.png" style="height: 30px;"> </span> -->
+										<strong class="categoryName font-25"></strong></h2>
+
+									<div class="description">
+										<!-- Crops Description -->
+										<div class="crops mt-10 hidden">District-wise yearly area, yield and production.
+											<span style="display: inline;">
+												<p>This file group has two files: 1. Area, production and yield and 2.
+													High yielding varieties The area, production yield file includes
+													data on 20 major crops that include cereals, pulses, oilseeds,
+													cotton, sugarcane, total fruits and vegetables. Yield is calculated
+													based on area and production.</p>
+
+												<p>The data are for the annual area and production under the crops. The
+													percent area under each crop is calculated by dividing crop area by
+													Gross Cropped Area (GCA variable generated using a defined
+													methodology).</p>
+
+												<p>For more details see definition and standards and in the data
+													documentation manualthe section on ‘data clarification and
+													anomalies’.</p>
+
+												<p>For season wise crop area and production data refer to season wise
+													area and production of crops under additional data); for breakup of
+													fruits and vegetables data by type also see files aon area and
+													vegetables under additional data.</p>
+
+
+												<p>The second file is on High Yielding Varieties (HYV / hybrids) has
+													data on area under HYVs for 5 major cereal crops. The data on HYVs
+													has a number of gaps in recent years implying that the area is
+													completely under HYVs and hence no longer reported / some states do
+													not publish this data.</p>
+											</span>
+										</div>
+										<!-- Irrigation Description -->
+										<div class="irrigation mt-20 hidden">District-wise yearly irrigated area.
+
+											<span>
+												<p>This file group has two files: 1. crop wise and 2. Source wise
+													irrigation. Crop wise irrigated area includes gross irrigated area
+													under selected cereal, pulses, oilseeds, cotton, sugarcane and total
+													fruits & vegetables. Crop wise irrigation by source is not
+													available. A few states do not report data on crop wise irrigation.
+												</p>
+
+												<p>The second file on source wise irrigation includes data on sources of
+													irrigation (canals, tanks, wells etc.) for each district besides
+													gross and net irrigated area. The file also provides data on percent
+													area irrigated by different sources. A few states do not report data
+													for different sources and hence data is available for net or gross
+													irrigated area only.</p>
+											</span>
+
+										</div>
+										<!-- Livestock Description -->
+										<div class="livestock mt-20 hidden">
+											The file includes data on milk, meat and egg production.
+											<span>
+												<p></p>
+												<h6 class="pull-left">Milk production:</h6> The data are for total milk
+												production. Where ever brake ups are available production is separated
+												for cow, milk buffalo milk and goat milk. The data are further
+												disaggregated for crossbred and indigenous cows; murrah and indigenous
+												buffaloes.
+												<p></p>
+
+												<h6 class="pull-left">Meat production:</h6> The data are for total meat
+												production. Where ever break ups are available meat production is
+												separated by cattle, buffalo, goat, sheep, pig and poultry.
+												<p></p>
+
+												<h6 class="pull-left">Egg production:</h6> The data are for total egg
+												production. Where ever break ups are available the egg production is
+												given separately for improved and desi poultry.
+											</span>
+										</div>
+										<!-- Inputs Description -->
+										<div class="inputs mt-20 hidden">
+											<h6 class="pull-left">Fertilizer consumption:</h6> Data are for Nitrogen
+											(N), Potassium (P2O5), Potash (K2O) and total for all three.
+											<span>
+												<p></p>
+												<h6 class="pull-left">Seasonal fertilizer consumption:</h6> The
+												fertilizer consumption data are broken up for Kharif (rainy) and rabi
+												(post rainy) seasons.
+												<p></p>
+
+												<h6 class="pull-left">Wages:</h6> Field labor wages for male and female
+												labor. The file also has data at the state level for field labor wages.
+											</span>
+										</div>
+										<!-- Infrastructure Description -->
+										<div class="infrastructure mt-20 hidden">
+											Regulated market yards and their sub-yards, total road length that includes
+											state and national highways and district / village roads maintained by local
+											bodies like panchayats. Soft infrastructure related to number of commercial
+											bank branches, post offices, hospitals and public health centres.
+
+											<span>
+												<p></p>
+												<h6 class="pull-left">Veterinary institutions:</h6> Infrastructure
+												related to livestock, i.e., veterinary hospitals, dispensaries, AI
+												centres, poultry extension centres.
+											</span>
+										</div>
+										<!-- Census Description -->
+										<div class="census mt-20 hidden">
+											This group of files includes data on various censuses related to the
+											agriculture sector and population census.
+											<span>
+												<p></p>
+												<h6 class="pull-left">Agriculture implements:</h6> The census for
+												agriculture implements was part of the livestock census until 2003 and
+												is carried out every five years. Since then it was delinked from
+												livestock census and data are available until for 2007 only. For our
+												purposes we have included pump sets, power tillers and tractors only.
+												The census years vary a bit across states.
+												<p></p>
+
+												<h6 class="pull-left">Livestock:</h6> The census is carried out every
+												five years. We have included numbers on large ruminants, small
+												ruminants, other domestic animals and poultry. Cattle is also part of
+												the livestock census and provides data on cross bred and indigenous
+												cattle. The census years vary a bit across state.
+												<p></p>
+
+												<h6 class="pull-left">Operational holding:</h6> This census is carried
+												out under the agriculture census and is available every five years. The
+												data are on area and number of operational holdings by size of land
+												holding class i.e., marginal, small, medium, large. The census years
+												vary a bit across states.
+												<p></p>
+
+												<h6 class="pull-left">Population:</h6> Population census is carried out
+												every 10 years. The file includes data on total population, rural and
+												urban population, literates, agricultural workers, and cultivators all
+												separated for male and female categories.
+											</span>
+										</div>
+										<!-- Biophysical Description -->
+										<div class="biophysical mt-20 hidden">
+											<h6 class="pull-left">Land use:</h6> Includes data on geographical area, or
+											reporting area, further breakups for area under forests, non-agricultural
+											land, fallow land, net and gross cropped area.
+
+											<span>
+												<p></p>
+												<h6 class="pull-left">Length of growing period:</h6> The variable is in
+												number of days and is an indicator of the crop growing period in a given
+												district.
+												<p></p>
+
+												<h6 class="pull-left">Monthly actual Rainfall:</h6> Average rainfall
+												data at district level is obtained from secondary sources. The data are
+												averaged across raingauges in a given district.
+												<p></p>
+
+												<h6 class="pull-left">Soil Type:</h6> Data are for share of different
+												soil types in a given district
+											</span>
+										</div>
+										<!-- Prices Description -->
+										<div class="prices mt-20 hidden">
+											Also known as farm gate prices, are the prices prevailing at the time of
+											harvest in the place where the crop is harvested. The whole sale prices in a
+											nearby market will be 15 to 20% higher than FHP as it will include
+											transport, packing charges and wholesalers margin.
+										</div>
+										<!-- GDP Description -->
+										<div class="gdp mt-20 hidden">
+											Includes total Gross domestic product (GDP) and also by sectors i.e.,
+											primary sector, secondary sector (manufacturing) and tertiary sector
+											(services) at current and constant prices. The file also includes per capita
+											GDP at district level.
+										</div>
+										<!-- Environment Description -->
+										<div class="environment mt-20 hidden">
+											Estimating district level statistics from spatial data available from the
+											open data sources. Spatial data in NetCDf available at <a
+												href="http://www.climatologylab.org/terraclimate.html"
+												target="_blank">http://www.climatologylab.org/terraclimate.html</a> for
+											(Tmax, Tmin, Aet, Pet, Def, PPT, Q, SWE, WS) variables were downloaded.
+
+											<span>
+												<p></p>
+												<h6 class="pull-left">Process of conversion:</h6> NetCDF Data was
+												converted to Geotiff format using ArcGIS multidimensional tools. These
+												layers were aggregated to district level using the “Zonal Statistics as
+												table” tool in Spatial Analysis module. “Mean statistic is used to
+												aggregate the pixels to the district level. The data from 1958-2015 was
+												processed in batch mode to come-up with year-wise tables for each
+												variable at the country level. An R script was used to compile yearly
+												files to one Excel sheet.
+												<p></p>
+
+												<h6 class="pull-left">Actual Evapotranspiration (AET):</h6> Actual
+												amount of water lost to evapotranspiration from the soil– plant
+												continuum by an actively growing plant or crop. Water loss through
+												evapotranspiration depends upon plant and soil characteristics, and upon
+												the amount of available water in the soil.
+												<p></p>
+
+												<h6 class="pull-left">Potential Evapotranspiration (PET):</h6> The
+												amount of water evaporated (both as transpiration and evaporation from
+												the soil) from an area of continuous, uniform vegetation that covers the
+												whole ground and that is well supplied with water.
+												<p></p>
+
+												<h6 class="pull-left">Maximum temperature (TMax):</h6> The highest
+												temperature reported for a given location during a given period.
+												<p></p>
+
+												<h6 class="pull-left">Minimum temperature (TMIN):</h6> The lowest
+												temperature attained at a specific location during a specified period.
+												<p></p>
+
+												<h6 class="pull-left">Precipitation (PPT):</h6> "Precipitation" means
+												the condensation of atmospheric water vapour that falls under gravity.
+												<p></p>
+
+												<h6 class="pull-left">Runoff (Q):</h6> When rain or snow falls onto the
+												earth, it starts moving along the slopes. A portion of it seeps into the
+												soil and to replenish Earth's groundwater. Most of it flows downhill as
+												runoff when rainfall intensity is more than the seepage or infiltration.
+											</span>
+										</div>
+									</div>
+
+									<div class="row mt-20">
+										<div class="col-sm-3">
+											<div class="form-group">
+												<h6 class="text-left mb-10">
+													<input type="checkbox" class="selAllState">
+													&nbsp; STATES
+												</h6>
+												<select name="states" class="form-control states"
+													multiple="multiple"></select>
+												<p class="text-danger error"></p>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<h6 class="text-left mb-10">
+													<input type="checkbox" class="selAllDist" />
+													&nbsp; DISTRICTS
+												</h6>
+												<select name="dists" class="form-control dists"
+													multiple="multiple"></select>
+												<p class="text-danger error"></p>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<h6 class="text-left mb-10">
+													<input type="checkbox" class="selAllEle" />
+													&nbsp; ELEMENTS
+												</h6>
+												<select class="form-control elements" name="elements"
+													multiple="multiple"></select>
+												<p class="text-danger error"></p>
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<h6 class="text-left mb-10">
+													<input type="checkbox" class="selAllItem" />
+													&nbsp; ITEMS
+												</h6>
+												<select class="form-control items" name="items"
+													multiple="multiple"></select>
+												<p class="text-danger error"></p>
+											</div>
+										</div>
+									</div>
+									<div class="row" style="padding: 14px;">
+										<div class="col-sm-7 text-left select_range" style="position:relative;">
+											<label class="radio-inline text-primary-1">
+												<input type="radio" name="inline_optionsRadios"
+													class="form-control yearRadio" value="1" checked>
+												SELECT YEAR RANGE
+											</label>
+											<div class="form-group" style="padding: 30px">
+												<input type="text" class="years" name="years" value="" />
+												<p class="text-danger error"></p>
+											</div>
+										</div>
+										<div class="col-sm-1 text-center">
+											<div id="content_or">
+												<div class="circle gray">OR</div>
+											</div>
+										</div>
+										<div class="col-sm-4 text-left select_range yearBlock">
+											<label class="radio-inline text-center text-primary-1">
+												<input type="radio" name="inline_optionsRadios"
+													class="form-control yearRadio" value="2">
+												SELECT YEARS
+											</label>
+											<div class="form-group" style="padding: 30px 0px">
+												<h6 class="text-left mb-10">
+													<input type="checkbox" class="selAllYears" />
+													&nbsp; ALL YEARS
+												</h6>
+												<select class="yearList form-control" multiple="multiple"
+													name="yearList[]"></select>
+												<p class="text-danger error"></p>
+											</div>
+										</div>
+									</div>
+									<div class="text-right">
+										<button type="button" class="btn btn-sm show-data">Show Data</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+		<section class="container-fluid  plr-20px clearfix main_section mt-30 mb-20">
+			<div id="main_content_outer" class="clearfix">
+				<div id="main_content">
+					<div class="row">
+						<div class="col-sm-12" id="showdata-table">
+							<div class="panel panel-default news-post" style="border:none;">
+								<div class="panel-heading" style="background: #fff;border:none;padding:10px 15px;">
+									<h2 class="pull-left mb-10"><strong class="font-25"> Data</strong></h2>
+									<div class="visualDiv pull-right"></div>
+									<div class="exportDiv pull-right"></div>
+								</div>
+								<div class="panel-body" style="padding-top:0;">
+									<table class="table table-stripped table-bordered display nowrap"
+										style="width:100%">
+										<thead>
+											<tr>
+												<th>Dist Code</th>
+												<th>Year</th>
+												<th>State Code</th>
+												<th>State Name</th>
+												<th>Dist Name</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td colspan="5">Please select all the above filters to show data.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Page Footer Start -->
+		<section id="pageFooter">
+
+		</section>
+		<!-- Page Footer End -->
+	</div>
+	<!--Wrapper End-->
+
+
+	<!-- <script src="../lib/select2/js/jquery.min.js"></script> -->
+	<script src="../lib/select2/js/jquery.min.js"></script>
+	<!-- bootstrap framework -->
+	<script src="../lib/select2/bootstrap/js/bootstrap.min.js"></script>
+	<!-- jQuery resize event -->
+	<script src="../lib/select2/js/jquery.ba-resize.min.js"></script>
+	<!-- jquery cookie -->
+	<script src="../lib/select2/js/jquery_cookie.min.js"></script>
+	<!-- retina ready -->
+	<script src="../lib/select2/js/retina.min.js"></script>
+	<!-- typeahead -->
+	<script src="../lib/select2/js/lib/typeahead.js/typeahead.min.js"></script>
+	<script src="../lib/select2/js/lib/typeahead.js/hogan-2.0.0.js"></script>
+	<script src="../lib/select2/js/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
+	<script src="../lib/select2/js/lib/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+	<!-- touchSwipe -->
+	<script src="../lib/select2/js/lib/TouchSwipe/jquery.touchSwipe.min.js"></script>
+	<!-- Navgoco -->
+	<script src="../lib/select2/js/lib/navgoco/jquery.navgoco.min.js"></script>
+	<!-- ebro common scripts/functions -->
+	<script src="../lib/select2/js/ebro_common.js"></script>
+	<!--[[ page specific plugins ]]-->
+
+	<!-- 2col multiselect -->
+	<script src="../lib/select2/js/lib/multi-select/js/jquery.multi-select.js"></script>
+	<script src="../lib/select2/js/jquery.quicksearch.js"></script>
+	<!-- select2 -->
+	<script src="../lib/select2/js/lib/select2/select2.min.js"></script>
+	<!-- chained selects -->
+	<script src="../lib/select2/js/lib/chained/jquery.chained.min.js"></script>
+	<script src="../lib/select2/js/lib/chained/jquery.chained.remote.min.js"></script>
+	<!-- combobox -->
+	<script src="../lib/select2/js/lib/fuelUx/combobox.js"></script>
+	<!-- masked inputs -->
+	<script src="../lib/select2/js/lib/jquery.inputmask/jquery.inputmask.bundle.min.js"></script>
+	<!-- password strength meter -->
+	<script src="../lib/select2/js/lib/complexify/jquery.complexify.min.js"></script>
+	<script src="../lib/select2/js/lib/complexify/jquery.complexify.banlist.js"></script>
+	<script src="../lib/select2/js/lib/colorpicker/js/bootstrap-colorpicker.js"></script>
+	<!-- iCheck -->
+	<script src="../lib/select2/js/lib/iCheck/jquery.icheck.min.js"></script>
+	<!-- noUI slider -->
+	<script src="../lib/select2/js/lib/noUiSlider/jquery.nouislider.min.js"></script>
+	<!-- Ion rangeSlider -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+	<!-- autosize -->
+	<script src="../lib/select2/js/lib/autosize/jquery.autosize-min.js"></script>
+	<!-- textarea counter -->
+	<script src="../lib/select2/js/lib/jquery_textarea_counter/jquery.textareaCounter.plugin.js"></script>
+	<!-- fileupload widgets -->
+	<script src="../lib/select2/js/lib/jasny_plugins/bootstrap-fileupload.js"></script>
+	<script src="../lib/select2/js/pages/ebro_form_extended.js"></script>
+	<!-- fSelect -->
+	<script src="../lib/fSelect-master/fSelect.js"></script>
+	<!-- DataTables -->
+	<script src="../lib/DataTables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../lib/DataTables/Buttons/js/dataTables.buttons.min.js"></script>
+	<script src="../lib/DataTables/Buttons/js/buttons.html5.min.js"></script>
+	<!-- JS -->
+	<script src="./assets/js/dldOperations.js"></script>
+	<script src="header-footer/header.js"></script>
+	<script src="header-footer/footer.js"></script>
+</body>
+
+</html>

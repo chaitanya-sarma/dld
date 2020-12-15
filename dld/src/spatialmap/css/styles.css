@@ -1,0 +1,112 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 10px;
+    background-color: #ffffff;
+}
+
+#main-waiting{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label{
+    color: #053888!important;
+    display: inline-block;
+    margin-bottom: .1rem; 
+}
+
+.mt-radio{
+    margin-top: 22px;
+}
+
+.mt-process{
+    margin-top: 10px;
+}
+
+
+.btn-group-xs > .btn, .btn-xs {
+    padding: .4rem .4rem;
+    margin-top: 5px;
+    font-size: 10px;
+    line-height: .5;
+    border-radius: 50%;
+}
+
+#down-year, #up-year{
+    display: none;
+}
+ 
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: #28A745;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #28A745;
+    cursor: pointer;
+}
+
+#download, #downloads{
+    display: none;
+}
+
+#csv-save, #img-save, #csvs-save, #imgs-save{
+    text-decoration: none !important;
+    padding-left: 5px;
+    color: black;
+}
+
+
+g, #india {
+    stroke: #101010;
+    stroke-width: .6;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    display: inline-block;
+    margin-top: 16px;
+    margin-bottom: -1px;
+}
+
+/* Top right text */
+.top-right {
+    position: absolute;
+    top: 350px;
+    right: 500px;
+  }
+  
+/* Bottom right text */
+.bottom-right {
+    position: absolute;
+    top: 650px;
+    right: 350px;
+}

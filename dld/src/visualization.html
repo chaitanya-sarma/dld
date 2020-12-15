@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ICRISAT-District Level Data</title>
+	<!-- CSS Files -->
+	<link href="../lib/css/new-style.css" rel="stylesheet">
+	<link href="../lib/css/custom1.css" rel="stylesheet">
+	<link href="../lib/css/responsive.css" rel="stylesheet">
+	<link href="../lib/css/color.css" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- bootstrap framework-->
+	<link rel="stylesheet" href="../lib/select2/bootstrap/css/bootstrap.min.css">
+	<!-- todc-bootstrap -->
+	<link rel="stylesheet" href="../lib/select2/css/todc-bootstrap.min.css">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="../lib/select2/css/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="../lib/select2/css/retina.css">
+	<!-- bootstrap switch -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/bootstrap-switch/stylesheets/bootstrap-switch.css">
+	<link rel="stylesheet" href="../lib/select2/js/lib/bootstrap-switch/stylesheets/ebro_bootstrapSwitch.css">
+
+	<!-- aditional stylesheets -->
+	<!-- 2col multiselect -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/multi-select/css/multi-select.css">
+	<link rel="stylesheet" href="../lib/select2/js/lib/multi-select/css/ebro_multi-select.css">
+	<!-- select2 -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/select2/select2.css">
+	<link rel="stylesheet" href="../lib/select2/js/lib/select2/ebro_select2.css">
+	<!-- datepicker -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/datepicker/css/datepicker.css">
+	<!-- timepicker -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/timepicker/css/bootstrap-timepicker.min.css">
+	<!-- colorpicker -->
+	<link rel="stylesheet" href="../lib/select2/js/lib/colorpicker/css/colorpicker.css">
+	<!-- iCheck -->
+	<link href="../lib/select2/js/lib/iCheck/skins/minimal/minimal.css" rel="stylesheet" id="icheck_theme">
+
+	<link rel="stylesheet" href="../lib/select2/js/lib/noUiSlider/jquery.nouislider.min.css">
+	<!-- Ion rangeSlider -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css" />
+	<!-- fSelect -->
+	<link rel="stylesheet" href="../lib/fSelect-master/fSelect.css">
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" href="../lib/DataTables/media/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../lib/DataTables/Buttons/css/buttons.dataTables.min.css">
+	<!-- ebro styles -->
+	<link rel="stylesheet" href="../lib/select2/css/style.css">
+	<link rel="stylesheet" href="../lib/mdb/css/mdb.min.css">
+	<!-- ebro theme -->
+	<link rel="stylesheet" href="../lib/select2/css/theme/color_1.css" id="theme">
+	<style>
+		  .home3.main-footer {
+		    /* background: url(../images/h3footerbg.jpg) no-repeat; */
+		    background-size: cover;
+		    background: #0e7a39!important;
+		}
+		table th {
+		        background-color: #065724!important;
+		        color: #FFFFFF;
+		    }
+		    .show-data{
+			background: transparent linear-gradient(275deg, #4AAC48 0%, #097B39 100%) 0% 0% no-repeat padding-box;
+			    height: 40px;
+			    color: #fff;
+			    width: 150px;
+			    border-radius: 4px;
+			    opacity: 1;
+			}
+			select.form-control {
+			    /*border: 1px solid #ddd!important;*/
+			    background: #DCDCDC 0% 0% no-repeat padding-box;
+			    border: 1px solid #B4B4B4;
+			    border-radius: 4px;
+			    opacity: 1;
+			    height: 34px;
+			}
+			.irs--flat .irs-bar {
+			    top: 25px;
+			    height: 12px;
+			    background-color: #4AAC48;
+			}
+			.home3.main-footer {
+	          /* background: url(../images/h3footerbg.jpg) no-repeat; */
+	          background-size: cover;
+	          background: #0e7a39!important;
+	      }
+		  .fs-label-wrap .fs-label {
+			padding: 8px 22px 10px 13px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			text-align: left;
+			background: #DCDCDC 0% 0% no-repeat padding-box;
+			/* border: 1px solid #B4B4B4; */
+			border-radius: 4px;
+			opacity: 1;
+			height: 34px;
+		}
+			.fs-dropdown {
+			    position: absolute;
+			    background-color: #fff;
+			    border: 1px solid #ddd;
+			    width: 92%;
+			    margin-top: 5px;
+			    z-index: 1000;
+			}
+			.main_section {
+			    margin-top: 5px;
+			}
+			body h6 {
+			    font-size: 14px;
+			    text-align: left;
+			    font: normal normal medium 30px/35px FreightSans Pro;
+			    letter-spacing: 0px;
+			    color: #131414;
+			    text-transform: capitalize;
+			    opacity: 1;
+			    font-weight: 700;
+			}
+			body h1, body h2, body h3, body h4, body h5, body h6 {
+			    font-family: "Lato", sans-serif;
+			    color: #053888;
+			    margin: 0px;
+			    text-align: left;
+			    /* font: normal normal 600 30px/39px FreightSans Pro; */
+			    letter-spacing: 0px;
+			    color: #242222;
+			    opacity: 1;
+			}
+			table th {
+		    background-color: #065724!important;
+		    color: #FFFFFF;
+		}
+		.fs-label-wrap {
+		    position: relative;
+		    background-color: #fff;
+		    border: 0px solid #ddd; 
+		    cursor: default;
+		}
+		.font-25 {
+		    font-size: 25px;
+		    font-weight: 700;
+		}
+		.select_range{
+			position: relative;
+		    background: #FFFFFF 0% 0% no-repeat padding-box;
+		    box-shadow: 0px 3px 12px #00000029;
+		    border-radius: 6px;
+		    opacity: 1;
+		}
+		.text-primary-1 {
+		    color: #000!important;
+		    padding-top: 20px;
+		    font-size: 15px;
+		}
+		.gray {
+		    background-color: #d1c5c5;
+		}
+		#content_or {
+		    margin: 71px auto;
+		    text-align: center;
+		    width: auto;
+		}
+ 
+		.btn-group>.dropdown-toggle:hover {
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+		.logo-nav-row .dropdown-menu>li>a:hover {
+		    background: #097b39;
+		    color: #fff;
+		}
+		.amcharts-amexport-item {
+			  border: 1px solid #777;
+			  background: #007bff;
+			}
+
+			.amcharts-amexport-top .amcharts-amexport-item > .amcharts-amexport-menu {
+			  top: -3px!important;
+			  left: 2px
+			  background: green!important;
+			}
+		.logo-nav-row .navbar-nav>li>a:hover {
+			color: #72b73b;
+			border-bottom: 3px solid green;
+			padding-bottom: 5px;
+		}
+		.irs-diapason,
+		.noUi-origin-lower {
+			background: none;
+		}
+		.irs-with-grid {
+			height: 60px;
+			width: inherit;
+		}
+		.btn-group-sm>.btn,
+		.btn-sm {
+			padding: 5px 10px;
+			font-size: 12px;
+			line-height: 1.5;
+			border-radius: 3px;
+		}
+		.navbar {
+			font-weight: 300;
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+		.fs-wrap {
+			display: inline-block;
+			cursor: pointer;
+			line-height: 1;
+			width: 100%;
+		}
+		.form-control {
+			height: 30px;
+			padding: 5px 8px;
+			font-size: 16px!important;
+			line-height: 1.4;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-top-color: #ddd;
+			border-radius: 1px;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+			-webkit-transition: none;
+			transition: none;
+		}
+		.mb-10 {
+			margin-bottom: 10px;
+		}
+		.panel {
+			overflow: visible;
+		}
+		.btn {
+			font-size: 12px !important;
+		}
+		p {
+		    font-family: "lato", sans-serif;
+		    color: #000;
+		}
+		.btn.export {
+			margin: 0 0 5px 1px;
+		}
+		table td,
+		table th {
+			font-size: 14px;
+		}
+		.mt-30 {
+			margin-top: 30px;
+		}
+		table th {
+			background-color: #11a911;
+			color: #FFFFFF;
+		}
+		.bg-white{
+			background: #fff;
+			padding: 20px;
+			margin-left: 0px;
+			margin-right: 0px;
+		}
+		.irs-slider.single {
+			background: linear-gradient(blue, blue) center/2px 100% no-repeat !important;
+		}
+		.yearRow {
+			margin-top: 18px;
+		}
+		input[type=checkbox]:checked:after {
+			background: url('./assets/images/checkmark.png') #fff no-repeat;
+		}
+		.header {
+			width: 100%;
+			background-color: #f7f7f7;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+		}
+		.logo-nav-row .navbar-nav>li>.dropdown-menu {
+			border: 0px;
+			border-radius: 0px;
+			padding: 10px;
+			text-align: left;
+			width: 220px;
+		}
+		.mt-50 {
+			margin-top: 105px;
+		}
+		@media (min-width: 320px) {
+      .item_pad{
+        padding-top:80px;
+      }
+      .logo_height{
+        display: block;
+        height: 49px;
+      }
+    }
+    @media (min-width: 360px){
+      .logo_height{
+        display: block;
+        height: 57px;
+      }
+    }
+    @media (min-width: 768px){
+      .logo_height{
+        display: block;
+        height: 44px;
+      }
+    }
+    @media (min-width: 812px){
+      .logo_height{
+        display: block;
+        height: 53px;
+      }
+    }
+    @media (min-width: 1024px){
+      .logo_height{
+        display: block;
+        height: 59px;
+      }
+    }
+    @media (max-width: 1200px) {
+  .navbar-header {
+      float: none;
+  }
+  .navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    background: #fff;
+    height: 2px;
+    border-radius: 1px;
+}
+.logo-nav-row .navbar-nav>li>a {
+    padding: 10px 14px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #777777;
+    font-weight: 700;
+}
+.logo-nav-row .navbar-brand {
+    padding: 4px 0px;
+    height: inherit;
+    margin-right: 0px;
+}
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  .navbar-toggle {
+    display: block;
+    background: #097b39;
+    margin-top: 16px;
+  }
+  .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+      display: none!important;
+  }
+  
+  .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+      float: none;
+  }
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  .collapse.in{
+      display:block !important;
+  }
+  
+  .navbar-brand {
+    display: inline-block;
+    float: none;
+  }
+  
+  .navbar-form.form-inline {
+    display: inline-block;
+    border-color: transparent;
+    margin: 4px;
+    padding: 5px;
+  }
+  
+  .navbar-form .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+   }
+  
+}
+  /*@media (min-width: 1200px){
+    .logo_height{
+      display: block;
+      height: 59px;
+    }
+  }*/
+	</style>
+</head>
+
+<body style="background: #eee;">
+	<!--Wrapper Start-->
+	<div class="wrapper">
+		 <!-- Page Footer Start -->
+      <section id="pageHeader">
+        
+      </section>
+    <!-- Page Footer End -->
+		<section class="container loader_body">
+			<div class="col-md-12" style="text-align: center;">
+				<img src="./assets/images/spinner.gif" style="width:400px;margin:30px auto;">
+			</div>
+		</section>
+
+
+		<section class="container-fluid clearfix main_section mt-50 plr-20px">
+			<div id="main_content_outer" class="clearfix">
+				<div id="main_content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="panel panel-default news-post" style="border:none;">
+								<div class="panel-body" style="padding-top:10px;">
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="form-group pt-10">
+												<h6 class="text-left mb-10">SELECT  CATEGORIES</h6>
+												<select name="category" class="form-control category">
+													<option value="crops" selected>Crops</option>
+													<option value="irrigation">Irrigation</option>
+													<option value="livestock">Livestock</option>
+													<option value="inputs">Inputs</option>
+													<option value="infrastructure">Infrastructure</option>
+													<option value="census">Census</option>
+													<option value="biophysical">Biophysical</option>
+													<option value="prices">Prices</option>
+													<option value="gdp">GDP</option>
+													<option value="environment">Environment</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="form-group pt-10 text-left">
+												<h6 class="text-left mb-10">SUB CATEGORY <!-- (<span class="categoryName"></span>) -->
+												</h6>
+												<select name="subcategory"
+												class="form-control subcategory text-left"></select>
+												<p class="text-danger error"></p>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="form-group pt-10 text-left">
+												<h6 class="text-left mb-10">SELECT YEARS
+												</h6>
+												<select class="year form-control" placeholder="select a year">
+											</select>
+												<p class="text-danger error"></p>
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--Main Content Start-->
+		<section class="container-fluid clearfix main_section plr-20px">
+			<div id="main_content_outer" class="clearfix">
+				<div id="main_content">
+					<label class="radio-inline hidden">
+						<input type="radio" class="datatype" name="datatype" value="apportioned" checked>Apportioned
+							</label>
+						<label class="radio-inline hidden">
+								<input type="radio" class="datatype" name="datatype" value="unapportioned" >Unapportioned
+					</label>
+
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="panel panel-default news-post" style="border:none;">
+								<div class="panel-heading" style="background: #fff;border:none;">
+									<h2 class="pull-left pt-20 pl-10"><strong class="categoryName"></strong></h2>
+								</div>
+								<div class="panel-body">
+
+									<div class="row mt-20">
+										<div class="col-sm-3">
+											<div class="form-group text-left">
+										            	<h6 class="text-left mb-10">
+															<input type="checkbox" class="selAllState">
+															&nbsp; STATES
+														</h6>
+														<select name="states" class="form-control states" multiple="multiple"></select>
+														<p class="text-danger error"></p>
+										          	</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group text-left">
+										            	<h6 class="text-left mb-10">
+															<input type="checkbox" class="selAllDist"/>
+															&nbsp; DISTRICTS
+														</h6>
+														<select name="dists" class="form-control dists" multiple="multiple"></select>
+														<p class="text-danger error"></p>
+										          	</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group text-left">
+										            	 <h6 class="text-center mb-10">&nbsp; ELEMENTS</h6>
+														<select  class="form-control elements" name="elements"></select>
+														<p class="text-danger error"></p>
+										          	</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="formgroup text-left">
+										            	 <h6 class="text-center mb-10">&nbsp; ITEMS</h6>
+														<select  class="form-control items" name="items"></select>
+														<p class="text-danger error"></p>
+										          	</div>
+										</div>
+										</div>
+										<div class="text-right">
+											<button type="button" class="btn btn-sm show-data">Show Data</button>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+		<section class="container-fluid clearfix main_section mt-20 mb-20  plr-20px" id="showdata-table">
+			<div id="main_content_outer" class="clearfix">
+				<div id="main_content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="panel panel-default news-post" style="border:none;">
+								<div class="panel-heading" style="background: #fff;border:none;padding:0 15px;">
+									<div class="exportDiv pull-right"></div>
+								</div>
+								<div class="panel-body">
+									<div id="chartdiv"></div>
+									<div id="chartError"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- Page Footer Start -->
+    <section  id="pageFooter">
+     
+    </section>
+    <!-- Page Footer End -->
+	</div>
+	<!--Wrapper End-->
+
+
+	<script src="../lib/select2/js/jquery.min.js"></script>
+	<!-- bootstrap framework -->
+	<script src="../lib/select2/bootstrap/js/bootstrap.min.js"></script>
+	<!-- jQuery resize event -->
+	<script src="../lib/select2/js/jquery.ba-resize.min.js"></script>
+	<!-- jquery cookie -->
+	<script src="../lib/select2/js/jquery_cookie.min.js"></script>
+	<!-- retina ready -->
+	<script src="../lib/select2/js/retina.min.js"></script>
+	<!-- typeahead -->
+	<script src="../lib/select2/js/lib/typeahead.js/typeahead.min.js"></script>
+	<script src="../lib/select2/js/lib/typeahead.js/hogan-2.0.0.js"></script>
+	<script src="../lib/select2/js/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
+	<script src="../lib/select2/js/lib/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+	<!-- touchSwipe -->
+	<script src="../lib/select2/js/lib/TouchSwipe/jquery.touchSwipe.min.js"></script>
+
+	<!-- Navgoco -->
+	<script src="../lib/select2/js/lib/navgoco/jquery.navgoco.min.js"></script>
+
+	<!-- ebro common scripts/functions -->
+	<script src="../lib/select2/js/ebro_common.js"></script>
+	<!--[[ page specific plugins ]]-->
+
+	<!-- 2col multiselect -->
+	<script src="../lib/select2/js/lib/multi-select/js/jquery.multi-select.js"></script>
+	<script src="../lib/select2/js/jquery.quicksearch.js"></script>
+	<!-- select2 -->
+	<script src="../lib/select2/js/lib/select2/select2.min.js"></script>
+	<!-- chained selects -->
+	<script src="../lib/select2/js/lib/chained/jquery.chained.min.js"></script>
+	<script src="../lib/select2/js/lib/chained/jquery.chained.remote.min.js"></script>
+	<!-- combobox -->
+	<script src="../lib/select2/js/lib/fuelUx/combobox.js"></script>
+	<!-- masked inputs -->
+	<script src="../lib/select2/js/lib/jquery.inputmask/jquery.inputmask.bundle.min.js"></script>
+	<!-- password strength meter -->
+	<script src="../lib/select2/js/lib/complexify/jquery.complexify.min.js"></script>
+	<script src="../lib/select2/js/lib/complexify/jquery.complexify.banlist.js"></script>
+	<script src="../lib/select2/js/lib/colorpicker/js/bootstrap-colorpicker.js"></script>
+	<!-- iCheck -->
+	<script src="../lib/select2/js/lib/iCheck/jquery.icheck.min.js"></script>
+	<!-- noUI slider -->
+	<script src="../lib/select2/js/lib/noUiSlider/jquery.nouislider.min.js"></script>
+	<!-- Ion rangeSlider -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+	<!-- autosize -->
+	<script src="../lib/select2/js/lib/autosize/jquery.autosize-min.js"></script>
+	<!-- textarea counter -->
+	<script src="../lib/select2/js/lib/jquery_textarea_counter/jquery.textareaCounter.plugin.js"></script>
+	<!-- fileupload widgets -->
+	<script src="../lib/select2/js/lib/jasny_plugins/bootstrap-fileupload.js"></script>
+	<script src="../lib/select2/js/pages/ebro_form_extended.js"></script>
+	<!-- fSelect -->
+	<script src="../lib/fSelect-master/fSelect.js"></script>
+	<!-- DataTables -->
+	<script src="../lib/DataTables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../lib/DataTables/Buttons/js/dataTables.buttons.min.js"></script>
+	<script src="../lib/DataTables/Buttons/js/buttons.html5.min.js"></script>
+
+	<!-- AmChart Resources -->
+	<script src="https://www.amcharts.com/lib/4/core.js"></script>
+	<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+	<script src="https://www.amcharts.com/lib/4/themes/frozen.js"></script>
+
+	<!-- JS -->
+	<script src="./assets/js/visualization.js">	</script>
+	<script src="header-footer/header.js"></script> 
+	<script src="header-footer/footer.js"></script>
+</body>
+
+</html>

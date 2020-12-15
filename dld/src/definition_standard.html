@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ICRISAT-District Level Data</title>
+    <!-- CSS Files -->
+    <link href="../lib/css/new-style.css" rel="stylesheet">
+    <link href="../lib/css/custom1.css" rel="stylesheet">
+    <link href="../lib/css/responsive.css" rel="stylesheet">
+    <link href="../lib/css/color.css" rel="stylesheet">
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- bootstrap framework-->
+    <link rel="stylesheet" href="../lib/select2/bootstrap/css/bootstrap.min.css">
+    <!-- todc-bootstrap -->
+    <link rel="stylesheet" href="../lib/select2/css/todc-bootstrap.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="../lib/select2/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../lib/select2/css/retina.css">
+    <!-- bootstrap switch -->
+    <link rel="stylesheet" href="../lib/select2/js/lib/bootstrap-switch/stylesheets/bootstrap-switch.css">
+    <link rel="stylesheet" href="../lib/select2/js/lib/bootstrap-switch/stylesheets/ebro_bootstrapSwitch.css">
+    <!-- aditional stylesheets -->
+    <!-- 2col multiselect -->
+    <link rel="stylesheet" href="../lib/select2/js/lib/multi-select/css/multi-select.css">
+    <link rel="stylesheet" href="../lib/select2/js/lib/multi-select/css/ebro_multi-select.css">
+    <!-- select2 -->
+    <link rel="stylesheet" href="../lib/select2/js/lib/select2/select2.css">
+    <link rel="stylesheet" href="../lib/select2/js/lib/select2/ebro_select2.css">
+    <!-- datepicker -->
+    <link rel="stylesheet" href="../lib/select2/js/lib/datepicker/css/datepicker.css">
+    <!-- timepicker -->
+    <link rel="stylesheet" href="../lib/select2/js/lib/timepicker/css/bootstrap-timepicker.min.css">
+    <!-- colorpicker -->
+    <link rel="stylesheet" href="../lib/select2/js/lib/colorpicker/css/colorpicker.css">
+    <!-- iCheck -->
+    <link href="../lib/select2/js/lib/iCheck/skins/minimal/minimal.css" rel="stylesheet" id="icheck_theme">
+    <link rel="stylesheet" href="../lib/select2/js/lib/noUiSlider/jquery.nouislider.min.css">
+    <!-- Ion rangeSlider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css" />
+    <link rel="stylesheet" href="../lib/fSelect-master/fSelect.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <!-- ebro styles -->
+    <link rel="stylesheet" href="../lib/select2/css/style.css">
+    <link rel="stylesheet" href="../lib/mdb/css/mdb.min.css">
+    <!-- ebro theme -->
+    <link rel="stylesheet" href="../lib/select2/css/theme/color_1.css" id="theme">
+    <style>
+        .home3.main-footer {
+        background-size: cover;
+        background: #0e7a39!important;
+         }
+         table th {
+            background-color: #70AD47!important;
+            color: #FFFFFF;
+        }
+        .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+            background-color: #E2EFDA;
+        }
+        .table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th {
+                background-color: #fff;
+        }
+        .mt-50{
+          margin-top: 100px;
+        }
+        .logo-nav-row .dropdown-menu>li>a:hover {
+          background: #097b39;
+          color: #fff;
+        }
+        .main-footer {
+          padding: 20px 0;
+          padding-bottom: 40px;
+          margin-bottom: 0px;
+        }
+      @media (min-width: 320px) {
+        .item_pad{
+          padding-top:80px;
+        }
+        .logo_height{
+          display: block;
+          height: 49px;
+        }
+      }
+      @media (min-width: 360px){
+        .logo_height{
+          display: block;
+          height: 57px;
+        }
+      }
+      @media (min-width: 768px){
+        .logo_height{
+          display: block;
+          height: 44px;
+        }
+      }
+      @media (min-width: 812px){
+        .logo_height{
+          display: block;
+          height: 53px;
+        }
+      }
+      @media (min-width: 1024px){
+        .logo_height{
+          display: block;
+          height: 59px;
+        }
+         .main-footer {
+          padding: 20px 0;
+          padding-bottom: 40px;
+          margin-bottom: 0px;
+      }
+      }
+      @media (max-width: 1200px) {
+        .navbar-header {
+            float: none;
+        }
+        .navbar-toggle .icon-bar {
+          display: block;
+          width: 22px;
+          background: #fff;
+          height: 2px;
+          border-radius: 1px;
+      }
+      .logo-nav-row .navbar-nav>li>a {
+          padding: 10px 14px;
+          text-transform: uppercase;
+          font-size: 14px;
+          color: #777777;
+          font-weight: 700;
+      }
+      .logo-nav-row .navbar-brand {
+          padding: 4px 0px;
+          height: inherit;
+          margin-right: 0px;
+      }
+        .navbar-left,.navbar-right {
+            float: none !important;
+        }
+        .navbar-toggle {
+          display: block;
+          background: #097b39;
+          margin-top: 16px;
+        }
+        .navbar-collapse {
+            border-top: 1px solid transparent;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .navbar-fixed-top {
+            top: 0;
+            border-width: 0 0 1px;
+        }
+        .navbar-collapse.collapse {
+            display: none!important;
+        }
+        
+        .navbar-nav {
+            float: none!important;
+            margin-top: 7.5px;
+        }
+        .navbar-nav>li {
+            float: none;
+        }
+        .navbar-nav>li>a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .collapse.in{
+            display:block !important;
+        }
+        
+        .navbar-brand {
+          display: inline-block;
+          float: none;
+        }
+        
+        .navbar-form.form-inline {
+          display: inline-block;
+          border-color: transparent;
+          margin: 4px;
+          padding: 5px;
+        }
+        
+        .navbar-form .form-control {
+          display: inline-block;
+          width: auto;
+          vertical-align: middle;
+         }
+        
+      }
+/*@media (min-width: 1200px){
+  .logo_height{
+    display: block;
+    height: 59px;
+  }
+}*/
+</style>
+</head>
+
+<body style="background: #eee;">
+    <!--Wrapper Start-->
+    <div class="wrapper">
+        <!-- Page Footer Start -->
+        <section id="pageHeader">
+        </section>
+        <!-- Page Footer End -->
+        <!--Main Content Start-->
+        <section class="container-fluid clearfix main_section mb-30 mt-50">
+            <div id="main_content_outer" class="clearfix">
+                <div id="main_content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default news-post" style="border:none;">
+                                <div class="panel-heading" style="background: #fff;border:none;">
+                                    <h4 class="panel-title pull-left"></h4>
+                                    <!-- <a href="#" class="btn btn-success btn-sm pull-right"><i class="fa  fa-download"></i>  Export as CSV</a> -->
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a data-toggle="tab" href="#st_general"> Identifiers (Apportioned data files)</a></li>
+                                        <li><a data-toggle="tab" href="#st_seo"> Identifiers (Unapportioned data files)</a></li>
+                                        <li><a data-toggle="tab" href="#st_date"> Description of Identifier codes</a></li>
+                                        <li><a data-toggle="tab" href="#st_standards"> Standards</a></li>
+                                        <li><a data-toggle="tab" href="#st_definitions"> Definitions</a></li>
+                                        <li><a data-toggle="tab" href="#st_units"> Units</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <!-- ===Start Apportioned Identifiers === -->
+                                        <div id="st_general" class="tab-pane active">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="panel panel-default" style="border:none;">
+                                                        <div class="panel-heading" style="background: #fff;border:none;">
+                                                            <a href="#" class="btn btn-success btn-sm pull-right" onclick="exportTableToCSV('ApportionedIdentifiers.csv', 'ApportionedIdentifiers', 'UnApportionedIdentifiers.csv', 'UnApportionedIdentifiers')"><i class="fa  fa-download"></i> Export as CSV</a>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                                            <br>
+                                                            <div class="table-responsive pb-30" style="height: 350px;overflow: scroll;">
+                                                                <table class="table table-bordered table-striped" id="ApportionedIdentifiers" style="width: 400vh;height: 400px;">
+                                                                    <thead class="top-stricky">
+                                                                        <tr>
+                                                                            <th>State Code</th>
+                                                                            <th>Indian Census State Code 2011</th>
+                                                                            <th>State Name </th>
+                                                                            <th>District Code</th>
+                                                                            <th>Indian Census District Code 2011</th>
+                                                                            <th>District Name</th>
+                                                                            <th>ICRISAT Indian Id</th>
+                                                                            <th>SAT/NONSAT District</th>
+                                                                            <th>Region Code</th>
+                                                                            <th>Region Name</th>
+                                                                            <th>Agro Ecological Zones ICRISAT</th>
+                                                                            <th>Agro Ecological Zones NATP</th>
+                                                                            <th>AEZ Production Zones NATP</th>
+                                                                            <th>Latitude</th>
+                                                                            <th>Longitude</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="myTable">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ===End Apportioned Identifiers === -->
+                                        <div id="st_seo" class="tab-pane ">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="panel panel-default" style="border:none;">
+                                                        <div class="panel-heading" style="background: #fff;border:none;">
+                                                            <a href="#" class="btn btn-success btn-sm pull-right" onclick="exportTableToCSV('UnApportionedIdentifiers.csv', 'UnApportionedIdentifiers')"><i class="fa  fa-download"></i> Export as CSV</a>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <input class="form-control" id="myInput1" type="text" placeholder="Search..">
+                                                            <br>
+                                                            <div class="table-responsive pb-30" style="height: 350px;overflow: scroll;">
+                                                                <table class="table table-bordered table-striped" id="UnApportionedIdentifiers" style="width: 400vh;height: 400px;">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>State Code</th>
+                                                                            <th>Indian Census State Code 2011</th>
+                                                                            <th>State Name </th>
+                                                                            <th>District Code</th>
+                                                                            <th>Indian Census District Code 2011</th>
+                                                                            <th>District Name</th>
+                                                                            <th>ICRISAT Indian Id</th>
+                                                                            <th>SAT/NONSAT District</th>
+                                                                            <th>Region Code</th>
+                                                                            <th>Region Name</th>
+                                                                            <th>Agro Ecological Zones ICRISAT</th>
+                                                                            <th>Agro Ecological Zones NATP</th>
+                                                                            <th>AEZ Production Zones NATP</th>
+                                                                            <th>Latitude</th>
+                                                                            <th>Longitude</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="myTable1">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="st_date" class="tab-pane">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="panel panel-default" style="border:none;">
+                                                        <div class="panel-heading" style="background: #fff;border:none;">
+                                                            <a href="#" class="btn btn-success btn-sm pull-right" onclick="exportTableToCSV('AdditionalIdentifiers.csv', 'AdditionalIdentifiers')"><i class="fa  fa-download"></i> Export as CSV</a>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <input class="form-control" id="myInput2" type="text" placeholder="Search..">
+                                                            <br>
+                                                            <div class="table-responsive pb-30" style="height: 350px;overflow: scroll;">
+                                                                <table class="table table-bordered table-striped" id="AdditionalIdentifiers">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Types</th>
+                                                                            <th>Variable</th>
+                                                                            <th>Units</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="myTable2">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="st_standards" class="tab-pane">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="panel panel-default" style="border:none;">
+                                                        <div class="panel-heading" style="background: #fff;border:none;">
+                                                            <a href="#" class="btn btn-success btn-sm pull-right" onclick="exportTableToCSV('Standards.csv', 'Standards')"><i class="fa  fa-download"></i> Export as CSV</a>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <input class="form-control" id="myInput3" type="text" placeholder="Search..">
+                                                            <br>
+                                                            <div class="table-responsive pb-30" style="height: 350px;overflow: scroll;">
+                                                                <table class="table table-bordered table-striped" id="Standards">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Terms</th>
+                                                                            <th>Explanation</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="myTable3">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="st_definitions" class="tab-pane">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="panel panel-default" style="border:none;">
+                                                        <div class="panel-heading" style="background: #fff;border:none;">
+                                                            <a href="#" class="btn btn-success btn-sm pull-right" onclick="exportTableToCSV('Definitions.csv', 'Definitions')"><i class="fa  fa-download"></i> Export as CSV</a>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <input class="form-control" id="myInput4" type="text" placeholder="Search..">
+                                                            <br>
+                                                            <div class="table-responsive pb-30" style="height: 350px; overflow: scroll;">
+                                                                <table class="table table-bordered table-striped" id="Definitions">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Abbreviation</th>
+                                                                            <th>Item Description</th>
+                                                                            <th>Units</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="myTable4">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="st_units" class="tab-pane">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="panel panel-default" style="border:none;">
+                                                        <div class="panel-heading" style="background: #fff;border:none;">
+                                                            <a href="#" class="btn btn-success btn-sm pull-right" onclick="exportTableToCSV('Units.csv', 'Units')"><i class="fa  fa-download"></i> Export as CSV</a>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <input class="form-control" id="myInput5" type="text" placeholder="Search..">
+                                                            <br>
+                                                            <div class="table-responsive pb-30" style="height: 350px;">
+                                                                <table class="table table-bordered table-striped" id="Units">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Types</th>
+                                                                            <th>Variable</th>
+                                                                            <th>Units</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="myTable5">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Page Footer Start -->
+        <section id="pageFooter">
+        </section>
+        <!-- Page Footer End -->
+    </div>
+    <!--Wrapper End-->
+    <script src="../lib/select2/js/jquery.min.js"></script>
+    <script src="../lib/select2/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../lib/select2/js/jquery.ba-resize.min.js"></script>
+    <script src="../lib/select2/js/jquery_cookie.min.js"></script>
+    <script src="../lib/select2/js/retina.min.js"></script>
+    <script src="../lib/select2/js/lib/typeahead.js/typeahead.min.js"></script>
+    <script src="../lib/select2/js/lib/typeahead.js/hogan-2.0.0.js"></script>
+    <script src="../lib/select2/js/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="../lib/select2/js/lib/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="../lib/select2/js/lib/TouchSwipe/jquery.touchSwipe.min.js"></script>
+    <script src="../lib/select2/js/lib/navgoco/jquery.navgoco.min.js"></script>
+    <script src="../lib/select2/js/ebro_common.js"></script>
+    <script src="../lib/select2/js/lib/multi-select/js/jquery.multi-select.js"></script>
+    <script src="../lib/select2/js/jquery.quicksearch.js"></script>
+    <script src="../lib/select2/js/lib/select2/select2.min.js"></script>
+    <script src="../lib/select2/js/lib/chained/jquery.chained.min.js"></script>
+    <script src="../lib/select2/js/lib/chained/jquery.chained.remote.min.js"></script>
+    <script src="../lib/select2/js/lib/fuelUx/combobox.js"></script>
+    <script src="../lib/select2/js/lib/jquery.inputmask/jquery.inputmask.bundle.min.js"></script>
+    <script src="../lib/select2/js/lib/complexify/jquery.complexify.min.js"></script>
+    <script src="../lib/select2/js/lib/complexify/jquery.complexify.banlist.js"></script>
+    <script src="../lib/select2/js/lib/colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="../lib/select2/js/lib/iCheck/jquery.icheck.min.js"></script>
+    <script src="../lib/select2/js/lib/noUiSlider/jquery.nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+    <script src="../lib/select2/js/lib/autosize/jquery.autosize-min.js"></script>
+    <script src="../lib/select2/js/lib/jquery_textarea_counter/jquery.textareaCounter.plugin.js"></script>
+    <script src="../lib/select2/js/lib/jasny_plugins/bootstrap-fileupload.js"></script>
+    <script src="../lib/select2/js/pages/ebro_form_extended.js"></script>
+    <script type="text/javascript" src="../lib/fSelect-master/fSelect.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="./assets/js/data.js"></script>
+    <script type="text/javascript" src="./assets/js/unapportion_data.js"></script>
+    <script type="text/javascript" src="./assets/js/additional_identifiers.js"></script>
+    <script type="text/javascript" src="./assets/js/standards.js"></script>
+    <script type="text/javascript" src="./assets/js/definitions_data.js"></script>
+    <script type="text/javascript" src="./assets/js/units.js"></script>
+    <script src="header-footer/header.js"></script>
+    <script src="header-footer/footer.js"></script>
+    <!-- JS -->
+    <script>
+    $(document).ready(function() {
+        var Apportioned = '';
+        cropsData.forEach(value => {
+            Apportioned += '<tr>';
+            Apportioned += '<td>' + value.StateCode + '</td>';
+            Apportioned += '<td>' + value.IndianCensusStateCode2011 + '</td>';
+            Apportioned += '<td>' + value.StateName + '</td>';
+            Apportioned += '<td>' + value.DistrictCode + '</td>';
+            Apportioned += '<td>' + value.IndianCensusDistrictCode2011 + '</td>';
+            Apportioned += '<td>' + value.DistrictName + '</td>';
+            Apportioned += '<td>' + value.ICRISATIndianId + '</td>';
+            Apportioned += '<td>' + value.SATNONSATDistrict + '</td>';
+            Apportioned += '<td>' + value.RegionCode + '</td>';
+            Apportioned += '<td>' + value.RegionName + '</td>';
+            Apportioned += '<td>' + value.AgroEcologicalZonesICRISAT + '</td>';
+            Apportioned += '<td>' + value.AgroEcologicalZonesNATP + '</td>';
+            Apportioned += '<td>' + value.AEZProductionZonesNATP + '</td>';
+            Apportioned += '<td>' + value.Latitude + '</td>';
+            Apportioned += '<td>' + value.Longitude + '</td>';
+            Apportioned += '</tr>';
+        });
+
+        $('#ApportionedIdentifiers').append(Apportioned);
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+
+        var UnApportioned = '';
+
+        UnApportioned_data.forEach(value => {
+            UnApportioned += '<tr>';
+            UnApportioned += '<td>' + value.StateCode + '</td>';
+            UnApportioned += '<td>' + value.IndianCensusStateCode2011 + '</td>';
+            UnApportioned += '<td>' + value.StateName + '</td>';
+            UnApportioned += '<td>' + value.DistrictCode + '</td>';
+            UnApportioned += '<td>' + value.IndianCensusDistrictCode2011 + '</td>';
+            UnApportioned += '<td>' + value.DistrictName + '</td>';
+            UnApportioned += '<td>' + value.ICRISATIndianId + '</td>';
+            UnApportioned += '<td>' + value.SATNONSATDistrict + '</td>';
+            UnApportioned += '<td>' + value.RegionCode + '</td>';
+            UnApportioned += '<td>' + value.RegionName + '</td>';
+            UnApportioned += '<td>' + value.AgroEcologicalZonesICRISAT + '</td>';
+            UnApportioned += '<td>' + value.AgroEcologicalZonesNATP + '</td>';
+            UnApportioned += '<td>' + value.AEZProductionZonesNATP + '</td>';
+            UnApportioned += '<td>' + value.Latitude + '</td>';
+            UnApportioned += '<td>' + value.Longitude + '</td>';
+            UnApportioned += '</tr>';
+        });
+
+        $('#UnApportionedIdentifiers').append(UnApportioned);
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+
+        var Additional = '';
+
+        Additional_data.forEach(value => {
+            Additional += '<tr>';
+            Additional += '<td>' + value.Type + '</td>';
+            Additional += '<td>' + value.Variable + '</td>';
+            Additional += '<td>' + value.Units + '</td>';
+            Additional += '</tr>';
+        });
+
+        $('#AdditionalIdentifiers').append(Additional);
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+
+        var Standards = '';
+        standards_data.forEach(value => {
+            Standards += '<tr>';
+            Standards += '<td>' + value.Term + '</td>';
+            Standards += '<td>' + value.Explanation + '</td>';
+            Standards += '</tr>';
+        });
+
+        $('#Standards').append(Standards);
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+
+        var Definitions = '';
+        definitions_data.forEach(value => {
+            Definitions += '<tr>';
+            Definitions += '<td>' + value.Abbreviation + '</td>';
+            Definitions += '<td>' + value.ItemDescription + '</td>';
+            Definitions += '<td>' + value.Units + '</td>';
+            Definitions += '</tr>';
+        });
+
+        $('#Definitions').append(Definitions);
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+
+        var Units = '';
+        Units_data.forEach(value => {
+            Units += '<tr>';
+            Units += '<td>' + value.Type + '</td>';
+            Units += '<td>' + value.Variable + '</td>';
+            Units += '<td>' + value.Units + '</td>';
+            Units += '</tr>';
+        });
+
+        $('#Units').append(Units);
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#myInput1").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable1 tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#myInput2").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable2 tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#myInput3").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable3 tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#myInput4").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable4 tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#myInput5").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable5 tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+    <script>
+    function downloadCSV(csv, filename) {
+        var csvFile;
+        var downloadLink;
+
+        // CSV file
+        csvFile = new Blob([csv], { type: "text/csv" });
+
+        // Download link
+        downloadLink = document.createElement("a");
+
+        // File name
+        downloadLink.download = filename;
+
+        // Create a link to the file
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+
+        // Hide download link
+        downloadLink.style.display = "none";
+
+        // Add the link to DOM
+        document.body.appendChild(downloadLink);
+
+        // Click download link
+        downloadLink.click();
+    }
+
+    function exportTableToCSV(filename, id) {
+
+        var csv = [];
+        var rows = document.querySelectorAll("#" + id)[0].querySelectorAll("table tr");
+
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = [],
+                cols = rows[i].querySelectorAll("td, th");
+
+            for (var j = 0; j < cols.length; j++)
+                row.push(cols[j].innerText);
+
+            csv.push(row.join(","));
+        }
+
+        console.dir(csv);
+
+        // Download CSV file
+        downloadCSV(csv.join("\n"), filename);
+    }
+    </script>
+</body>
+
+</html>
