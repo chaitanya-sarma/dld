@@ -33,9 +33,9 @@ let footer = `<footer class="home3 footer-bottom main-footer wf100 main_section 
 		              <li><span> S Nedumaran - Senior Scientist (Economics)</span></li>
 		              <li><span>  Global Program on Innovation Systems for Drylands (ISD), ICRISAT </span></li>
 		              <li><span> Address: Patancheru, Hyderabad, Telangana - 502324, India <br/>
-					   Email: s.nedumaran@cgiar.org, Skype: s.nedumaran<br/>
-					   Phone: +91 40 3071 3522, +91 9618800165,
-					   Fax: +91 40 30713072 </span></li>
+					   Email: s.nedumaran@cgiar.org, sbdm@cgiar.org<br/>
+					   Phone: +91 8455683071
+					   </span></li>
 		            </ul>
 		          </div>
 		        </div>
